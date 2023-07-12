@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 //define a private field for dependency.
     private Coach myCoach;
-    @Autowired
-    public DemoController(Coach theCoach){
-        myCoach = theCoach;
-    }
 
+    @Autowired
+    public void setCoach(Coach theCoach){
+        this.myCoach = theCoach;
+    }
     @GetMapping("/dailyworkout")
     public String getDailyWorkout(){
         return myCoach.getDailyWorkout();
